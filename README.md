@@ -160,7 +160,7 @@ Some parts of `LLIELib`'s code were completed with the assistance of  [KyleTang-
 
 ## Contact us
 
-If you have any question or suggestion, please feel free to contact us by [raising an issue]([Issues · glory-wan/LLIE-Lihttps://github.com/glory-wan/LLIE-Lib/issues) or sending an email to glory947446@gmail.com.
+If you have any question or suggestion, please feel free to contact us by [raising an issue](https://github.com/glory-wan/LLIE-Lib/issues) or sending an email to glory947446@gmail.com.
 
 ## License
 

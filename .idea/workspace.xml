@@ -5,29 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="955e5c0f-91df-4f88-929b-7c822186562e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/1-14.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1/.idea/1-7算法.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1/BPDHE1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1/CVC.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1/DHE1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1/LDR1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1/POHE1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1/WTHE.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1/input.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibLlie/deelLearning/model/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/LibLlie3.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LibLlie1.0.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/DCP.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/gamma.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image-20240817204710109.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/input.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/save3_out.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibLlie.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/LibLlie.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibLlie.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/LibLlie.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibLlie/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibLlie/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/LibLlie-3.0.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/LibLlie-3.0.tar.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4d49542d626c75652e737667.svg+xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,24 +43,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.66.executor&quot;: &quot;Run&quot;,
-    &quot;Python.77.executor&quot;: &quot;Run&quot;,
-    &quot;Python.commandTA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.config.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scriptTA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.utils (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/BaiduSyncdisk/code/LibLlie1.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.66.executor": "Run",
+    "Python.77.executor": "Run",
+    "Python.commandTA.executor": "Run",
+    "Python.config.executor": "Run",
+    "Python.scriptTA.executor": "Run",
+    "Python.utils (1).executor": "Run",
+    "Python.utils.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/BaiduSyncdisk/code/LibLlie"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\BaiduSyncdisk\code\LibLlie" />
       <recent name="D:\Code\pycode\LibLlie3.0\LibLlie\troditionAlgorithm\methods" />
     </key>
   </component>
@@ -137,7 +123,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/example/scriptTA.py" />
+      <option name="SCRIPT_NAME" value="D:\BaiduSyncdisk\code\LibLlie\scriptTA.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />

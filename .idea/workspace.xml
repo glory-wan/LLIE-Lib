@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="955e5c0f-91df-4f88-929b-7c822186562e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/DCP.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/gamma.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/image-20240817204710109.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/input.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/save3_out.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4d49542d626c75652e737667.svg+xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/image-20240817204710109.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/HE_seies.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/save3_out.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/Multi_Enhancement.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

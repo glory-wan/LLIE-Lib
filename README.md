@@ -1,7 +1,5 @@
 # LibLLIE: Low-Light Image Enhancement Library
 
-## Introduction
-
 `LibLLIE` is an open-source library **for Low-Light Image Enhancement** built on PyTorch.
 
 ​	This Python library provides a collection of traditional machine learning algorithms for low-light image enhancement. The library supports multiple color spaces and offers various methods for image enhancement. It is designed to be modular and easy to integrate into your existing projects.
@@ -16,23 +14,22 @@
 
 - [Installation](#installation)
 
-- Implementations
+- [Implementations](#Demonstration)
+- HE series
+  
+- Math series
+  
+- Dark Channel Prior(DCP)
+  
+- Multiple Color Spaces
 
-  - HE series
-
-  - Math series
-
-  - Dark Channel Prior(DCP)
-
-  - Multiple Color Spaces
-
-**Supported Algorithms** for now !
+**Supported Algorithms** for now :
 
 HE Series: HE、CLAHE、RCLAHE
 
 Math series: gamma correction、log transformation
 
-Dark Channel Prior: implementation of [Single image haze removal using dark channel prior]([Single Image Haze Removal (kaiminghe.github.io)](https://kaiminghe.github.io/cvpr09/index.html))
+Dark Channel Prior(DCP): implementation of paper : [Single image haze removal using dark channel prior](https://kaiminghe.github.io/cvpr09/index.html)
 
 Color Spaces: RGB、HLS、HSV、LAB、YUV...
 
@@ -60,7 +57,7 @@ pip install .     # Standard mode, suitable for installing the package without t
 
 With this method, you don't need to download the source code. Simply download a compressed package and execute the following command in your local Python environment.
 
-The compressed package can be found at [`LLIE-Lib/dist`](https://github.com/glory-wan/LLIE-Lib/tree/main/dist).
+The compressed package can be found at [`LLIE-Lib/dist`](https://github.com/glory-wan/LLIE-Lib/tree/main/dist), or you can download it from the [Releases](https://github.com/glory-wan/LLIE-Lib/releases) section.
 
 ```
 pip install LibLlie-1.0.tar.gz
@@ -121,17 +118,17 @@ Below are some examples demonstrating the enhancement effects achieved using `Li
 
 **Original vs Enhanced Images using `HE series`**
 
-the input![input](assets\input.jpg)
+the input![input](assets/input.jpg)
 
 the results of HE series
 
-![image-20240817204710109](assets\image-20240817204710109.png)
+![image-20240817204710109](assets/HE_seies.png)
 
 **Original vs Enhanced Images using `gamma correction`**
 
 The input
 
-![gamma](assets\gamma.png)
+![gamma](assets/gamma.png)
 
 The result with varying gamma values
 
@@ -150,11 +147,11 @@ https://private-user-images.githubusercontent.com/98147662/358846659-b1fde82d-da
 
 (This part of the code will be uploaded soon.)
 
-![save3_out](assets\save3_out.png)
+![Multi-Enhancement](assets/Multi_Enhancement.png)
 
 ## Contributor
 
-Some parts of `LLIELib`'s code were completed with the assistance of  [KyleTang-0711]([KyleTang-0711 (github.com)](https://github.com/KyleTang-0711)), .
+Some parts of `LLIELib`'s code were completed with the assistance of [BZ2116](https://github.com/BZ2116), [KyleTang-0711]([KyleTang-0711 (github.com)](https://github.com/KyleTang-0711)), [Bainianzzz](https://github.com/Bainianzzz), [purpleflower](https://github.com/purpleflower), [Mystic2004](https://github.com/Mystic2004), [Humbleb11](https://github.com/Humbleb11), [7dayu6](https://github.com/7dayu6) .
 
 ​	We welcome contributions to improve this library. If you would like to contribute, please fork the repository, create a new branch, and submit a pull request.
 

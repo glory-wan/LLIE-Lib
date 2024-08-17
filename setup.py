@@ -4,7 +4,7 @@ setup(
     name='LibLlie',
     version='1.0',
     packages=find_packages(),
-    author='Guangrong Wan',
+    author='Glory Wan',
     author_email='glory947446@gmail.com',
     description='A Python library for low-light image enhancement, '
                 'integrating various algorithms and deep learning models '

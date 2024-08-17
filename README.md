@@ -1,4 +1,4 @@
-# LibLLIE: Low-Light Image Enhancement Library
+# LLIELib: Low-Light Image Enhancement Library
 
 `LibLLIE` is an open-source library **for Low-Light Image Enhancement** built on PyTorch.
 

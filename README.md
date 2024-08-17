@@ -16,12 +16,12 @@
 
 - [Implementations](#Demonstration)
 - HE series
-  
-- Math series
-  
-- Dark Channel Prior(DCP)
-  
-- Multiple Color Spaces
+  - Math series
+
+  - Dark Channel Prior(DCP)
+
+  - Multiple Color Spaces
+
 
 **Supported Algorithms** for now :
 

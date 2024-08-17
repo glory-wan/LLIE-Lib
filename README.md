@@ -15,13 +15,14 @@
 - [Installation](#installation)
 
 - [Implementations](#Demonstration)
-- HE series
+  - HE series
+  
   - Math series
-
+  
   - Dark Channel Prior(DCP)
-
+  
   - Multiple Color Spaces
-
+  
 
 **Supported Algorithms** for now :
 

@@ -1,5 +1,4 @@
 LICENSE
-README.md
 setup.py
 LibLlie/__init__.py
 LibLlie/utils.py
@@ -9,6 +8,7 @@ LibLlie.egg-info/dependency_links.txt
 LibLlie.egg-info/requires.txt
 LibLlie.egg-info/top_level.txt
 LibLlie/deelLearning/__init__.py
+LibLlie/deelLearning/model/__init__.py
 LibLlie/troditionAlgorithm/__init__.py
 LibLlie/troditionAlgorithm/config.py
 LibLlie/troditionAlgorithm/processPipeline.py

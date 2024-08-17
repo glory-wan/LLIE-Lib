@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='LibLlie',
-    version='3.0',
+    version='1.0',
     packages=find_packages(),
     author='Guangrong Wan',
     author_email='glory947446@gmail.com',

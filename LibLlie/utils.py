@@ -123,7 +123,7 @@ project_path = Path(__file__).parent.parent
 results_path = os.path.join(project_path, 'results')
 
 
-def save_img(img, name=None, format=None, directory=results_path):
+def save_img(img, name='resultImg', format='jpg', directory=results_path):
     """
         This function is used to save the processed image
     :param img: the image which need to be saved
@@ -133,10 +133,6 @@ def save_img(img, name=None, format=None, directory=results_path):
     """
     if not os.path.exists(directory):
         os.makedirs(directory)
-    if name is None:
-        name = 'resultImg'
-    if format is None:
-        format = 'jpg'
     file_path = os.path.join(directory, f"{name}.{format}")
     cv2.imwrite(file_path, img)
     print(f"Image has been saved in {file_path}")

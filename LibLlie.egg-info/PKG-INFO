@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: LibLlie
-Version: 3.0
+Version: 1.0
 Summary: A Python library for low-light image enhancement, integrating various algorithms and deep learning models to improve image visibility and quality under low-light conditions.
 Author: Guangrong Wan
 Author-email: glory947446@gmail.com

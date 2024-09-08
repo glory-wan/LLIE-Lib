@@ -120,7 +120,7 @@ def script_ta(img_path,
               clipLimit=None,
               gridSize=None,
               iteration=None,
-              DcpSize=None,
+              dcpSize=None,
               ):
     reader = ReadImage(img_path)
     image = reader.img
@@ -133,7 +133,7 @@ def script_ta(img_path,
         iteration=iteration
     )
 
-    DCP = DarkChannel(size=DcpSize)
+    DCP = DarkChannel(size=dcpSize)
 
     al_cs = AlgorithmCs(pipeline=pipeliner, process=processor)
     he_algorithms = al_cs.he_algorithm()

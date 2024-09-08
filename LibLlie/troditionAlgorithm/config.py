@@ -31,7 +31,7 @@ def parameters_ta():
     parser.add_argument('--height', type=int, default=600,
                         help='The height of the window in which the picture is displayed')
 
-    parser.add_argument('--size', type=int, default=15, help='The kernel size for DarkChannel extraction')
+    parser.add_argument('--dcpSize', type=int, default=15, help='The kernel size for DarkChannel extraction')
 
     return parser.parse_args()
 

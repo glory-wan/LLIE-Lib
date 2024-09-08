@@ -98,6 +98,7 @@ img = script_ta(
     # clipLimit=2.0,   # default = 2.0
     # gridSize=8,    # default = 8
     # iteration=2,    # default = 2
+    # dcpSize=15,     # default = 15
 )
 ```
 

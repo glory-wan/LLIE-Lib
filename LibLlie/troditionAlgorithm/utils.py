@@ -4,6 +4,7 @@ from pathlib import Path
 
 from LibLlie.utils import ReadImage, show_img, save_img
 from LibLlie.troditionAlgorithm.methods.heMethod import HeImage
+from LibLlie.troditionAlgorithm.methods.DarkChannel import DarkChannel
 from LibLlie.troditionAlgorithm.config import parameters_ta
 from LibLlie.troditionAlgorithm.processPipeline import process_pipeline
 
@@ -47,6 +48,10 @@ class PipelineImage:
         return self.img
 
     def rgb(self):
+        """
+        Returns:
+            A tuple containing the three channels: blue channel, green channel, and red channel.
+        """
         self.check_img()
         self.pipeline1, self.pipeline2, self.pipeline3 = cv2.split(self.img)
         return self.pipeline1, self.pipeline2, self.pipeline3
@@ -114,7 +119,8 @@ def script_ta(img_path,
               directory=results_path,
               clipLimit=None,
               gridSize=None,
-              iteration=None
+              iteration=None,
+              DcpSize=None,
               ):
     reader = ReadImage(img_path)
     image = reader.img
@@ -127,17 +133,20 @@ def script_ta(img_path,
         iteration=iteration
     )
 
-    al_cs = AlgorithmCs(process=processor, pipeline=pipeliner)
-    algorithms = al_cs.he_algorithm()
+    DCP = DarkChannel(size=DcpSize)
+
+    al_cs = AlgorithmCs(pipeline=pipeliner, process=processor)
+    he_algorithms = al_cs.he_algorithm()
     color_spaces = al_cs.color_space
 
     image = process_pipeline(
         method=algorithm,
         cs=color_space,
-        algorithms=algorithms,
+        algorithms=he_algorithms,
         color_space=color_spaces,
         process=processor,
-        pipeline=pipeliner
+        pipeline=pipeliner,
+        DCP=DCP,
     )
     if showimg:
         show_img(
@@ -163,6 +172,7 @@ def command_ta():
     image = reader.img
 
     pipeliner = PipelineImage(img=image)
+
     processor = HeImage(
         param=pta,
         pipeline=pipeliner,
@@ -175,13 +185,16 @@ def command_ta():
     algorithms = al_cs.he_algorithm()
     color_spaces = al_cs.color_space
 
+    DCP = DarkChannel(size=pta.size)
+
     image = process_pipeline(
         method=pta.method,
         cs=pta.cs,
         algorithms=algorithms,
         color_space=color_spaces,
         process=processor,
-        pipeline=pipeliner
+        pipeline=pipeliner,
+        DCP=DCP,
     )
     if pta.display:
         show_img(

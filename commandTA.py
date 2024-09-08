@@ -13,7 +13,7 @@ if __name__ == '__main__':
         
         example:
         ( if your root directory is `LibLlie`, run following command )
-        python example/commandTA.py --img path/to/img --method he --cs hsv --name he_hsv --display True
+        python commandTA.py --img path/to/img --method he --cs hsv --name he_hsv --display True
         
         
         Refer to LibLlie.troditionAlgorithm.config for details of other parameters 

@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def process_pipeline(method, cs, algorithms, color_space, process, pipeline):
+def process_pipeline(method, cs, algorithms, color_space, process, pipeline, DCP):
     """
     Description:
         Pass in the selected algorithm and color space, as well as the image's pipeline and processor.
@@ -14,6 +14,7 @@ def process_pipeline(method, cs, algorithms, color_space, process, pipeline):
     :param color_space: a dictionary of color space
     :param process: the processor of pipeline
     :param pipeline: the value of pipeline needed to be processed
+    :param DCP: a class of DarkChannel, see details in LibLlie/troditionAlgorithm/methods/DarkChannel.py
 
     :return: enhanced image
     """
@@ -34,6 +35,8 @@ def process_pipeline(method, cs, algorithms, color_space, process, pipeline):
                 img = pipeline.merge_pipeline(cs=cs)
         else:
             raise ValueError('Incorrect color space name was input !')
+    elif method == 'DCP':
+        img = DCP.run(pipeline.img)
     else:
         raise ValueError('Incorrect algorithm name was input !')
 

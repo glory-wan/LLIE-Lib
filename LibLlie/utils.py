@@ -19,8 +19,7 @@ class ReadImage:
        Attributes:
            image_type (str): The type of the image source ('local', 'url', or 'bytes').
            img (numpy.ndarray): The image data as a NumPy array.
-
-       """
+    """
 
     def __init__(self, image_source=None, timeout=10):
         self.image_source = image_source

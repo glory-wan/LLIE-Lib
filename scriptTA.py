@@ -1,12 +1,11 @@
-from LibLlie.utils import ConvertFormat
 from LibLlie.troditionAlgorithm.utils import script_ta
 
 if __name__ == '__main__':
-    path_to_img = r"D:\BaiduSyncdisk\code\myweb\mypage\static\images\0.jpg"  # it can be input local image, url, or bytes stream
+    path_to_img = r"D:\Code\JupyterCode\Assigment\data\real_data\fish.png"  # it can be input local image, url, or bytes stream
 
     img = script_ta(
         path_to_img,
-        algorithm='he',
+        algorithm='DCP',
         color_space='rgb',
 
         # following parameters are alternative
@@ -20,12 +19,13 @@ if __name__ == '__main__':
         # clipLimit=,   # default = 2.0
         # gridSize=,    # default = 8
         # iteration=    # default = 2
+        # DcpSize=15,     # default = 15
     )
     """
         Quickly start:
         
         supported algorithm:
-            he: he | clahe | rclahe
+            he: he | clahe | rclahe | DCP
         
         supported color_space:
             cs: rgb | hls | hsv | lab | yuv 

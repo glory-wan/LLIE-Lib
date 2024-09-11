@@ -38,7 +38,7 @@ class HeImage(AbsMethod):
                     self.iteration = 2
                     print("No 'iteration' was input, it was set to default=2")
 
-            self.create_clahe(self.clipLimit, self.gridSize)
+        self.create_clahe(self.clipLimit, self.gridSize)
 
     def create_clahe(self, clip_limit, grid_size):
         self._clahe = cv2.createCLAHE(clipLimit=clip_limit,

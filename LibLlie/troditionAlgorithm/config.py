@@ -24,7 +24,7 @@ def parameters_ta():
     parser.add_argument('--name', type=str, default='resultImg', help='The name of the output image file')
     parser.add_argument('--save', type=str, default=results_path,
                         help='A directory path where the result image will be saved.')
-    parser.add_argument('--format', type=str, help='the format of the image which will be saved')
+    parser.add_argument('--format', type=str, default='jpg', help='the format of the image which will be saved')
     parser.add_argument('--display', default=False, help='Select to display the processed image')
     parser.add_argument('--width', type=int, default=800,
                         help='The width of the window in which the picture is displayed')

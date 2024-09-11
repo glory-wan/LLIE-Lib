@@ -185,7 +185,10 @@ def command_ta():
     algorithms = al_cs.he_algorithm()
     color_spaces = al_cs.color_space
 
-    DCP = DarkChannel(size=pta.size)
+    if pta.method == 'DCP':
+        DCP = DarkChannel(size=pta.size)
+    else:
+        DCP = None
 
     image = process_pipeline(
         method=pta.method,

@@ -2,7 +2,7 @@ import cv2
 import os
 from pathlib import Path
 
-from LibLlie.utils import ReadImage, show_img, save_img
+from LibLlie.deelLearning.utils import ReadImage, show_img, save_img
 from LibLlie.troditionAlgorithm.methods.heMethod import HeImage
 from LibLlie.troditionAlgorithm.config import parameters_ta
 from LibLlie.troditionAlgorithm.processPipeline import process_pipeline

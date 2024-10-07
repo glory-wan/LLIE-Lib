@@ -19,7 +19,7 @@ if __name__ == '__main__':
         # clipLimit=,   # default = 2.0
         # gridSize=,    # default = 8
         # iteration=    # default = 2
-        # dcpSize=15,     # default = 15
+        dcpSize=15,     # default = 15
     )
     """
         Quickly start:

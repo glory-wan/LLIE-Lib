@@ -122,7 +122,7 @@ project_path = Path(__file__).parent.parent
 results_path = os.path.join(project_path, 'results')
 
 
-def save_img(img, name='resultImg', format='jpg', directory=results_path):
+def save_img(img, name='resultImg', format='png', directory=results_path):
     """
         This function is used to save the processed image
     :param img: the image which need to be saved

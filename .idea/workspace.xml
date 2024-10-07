@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="955e5c0f-91df-4f88-929b-7c822186562e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibLlie/troditionAlgorithm/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibLlie/troditionAlgorithm/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibLlie/troditionAlgorithm/methods/heMethod.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibLlie/troditionAlgorithm/methods/heMethod.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibLlie/troditionAlgorithm/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibLlie/troditionAlgorithm/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scriptTA.py" beforeDir="false" afterPath="$PROJECT_DIR$/scriptTA.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +51,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/BaiduSyncdisk/code/LibLlie&quot;
+    &quot;last_opened_file_path&quot;: &quot;D:/Artificial_Intelligence_model/RT-DETR-main&quot;
   }
 }</component>
   <component name="RecentsManager">

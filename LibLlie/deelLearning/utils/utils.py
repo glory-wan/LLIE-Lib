@@ -1,8 +1,15 @@
+import os
 import torch
-import datetime
 import sys
-import numpy as np
+import datetime
+from tqdm import tqdm
 from PIL import Image
+import numpy as np
+from torch.utils.data import DataLoader
+import torchvision.transforms as transforms
+
+from LibLlie.deelLearning.config import models
+from LibLlie.deelLearning.dataset.basedataset import baseDataSet
 
 
 def log_info_env():
@@ -28,3 +35,51 @@ def save_image(tensor, path, _format='png'):
     im = Image.fromarray(np.clip(image_numpy * 255.0, 0, 255.0).astype('uint8'))
     im.save(path, _format)
 
+
+def scriptDL(
+        model=None,
+        model_path=None,
+        input_dir=None,
+        output_dir=None,
+        save_format='png',
+):
+    output_format = model
+    log_info_env()
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print(f"\n Now, you are using '{device}' to run model!")
+
+    if 'SCI' in output_format:
+        model = models[model](model_path).to(device)
+    elif 'Zero-DCE' == output_format:
+        model = models[model]().to(device)
+        model.load_state_dict(torch.load(model_path))
+
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+        # transforms.Resize((512, 512)),
+    ])
+    testDataset = baseDataSet(input_dir=input_dir, transform=transform)
+    testImages = DataLoader(testDataset, batch_size=1, pin_memory=False, num_workers=os.cpu_count())
+
+    model.eval()
+    with torch.no_grad():
+        for imTensor, name in tqdm(testImages, desc=f'using {os.path.basename(model_path)} to infer:'):
+            imTensor = imTensor.to(device)
+
+            if 'SCI' in output_format:
+                i, output = model(imTensor)
+            elif 'Zero-DCE' == output_format:
+                _, output, _ = model(imTensor)
+
+            name = name[0] + '.' + save_format
+            save_path = os.path.join(output_dir, name)
+            save_image(output, save_path)
+
+
+if __name__ == '__main__':
+    scriptDL(
+        model='SCI-easy',
+        model_path='../../models/SCI/easy.pt',
+        input_dir=r'D:\Code\pycode\Data_All\demo',
+        output_dir=r"D:\Code\pycode\Data_All\test",
+    )

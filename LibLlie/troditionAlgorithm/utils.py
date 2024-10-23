@@ -41,9 +41,13 @@ class PipelineImage:
         elif cs == 'lab':
             self.img = cv2.merge((self.pipeline, self.pipeline2, self.pipeline3))
             self.img = cv2.cvtColor(self.img, cv2.COLOR_LAB2BGR)
-        else:
+        elif cs == 'yuv':
             self.img = cv2.merge((self.pipeline, self.pipeline2, self.pipeline3))
             self.img = cv2.cvtColor(self.img, cv2.COLOR_YUV2BGR)
+        else:
+            self.img = None
+            print(f"Unsupported color_space: {cs}. "
+                  f"Use 'rgb', 'hsv', 'hls', 'lab', 'yuv'.")
 
         return self.img
 

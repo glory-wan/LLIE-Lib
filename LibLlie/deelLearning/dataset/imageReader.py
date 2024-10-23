@@ -3,9 +3,6 @@ import numpy as np
 from PIL import Image
 import pillow_heif
 import cv2
-import logging
-
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 class ImageReader:

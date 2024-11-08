@@ -1,5 +1,6 @@
 import os
 from tqdm import tqdm
+import torch
 from torch.utils.data import Dataset
 import torchvision.transforms as transforms
 
@@ -10,7 +11,7 @@ def get_img_from_floder(folder_path):
     image_files = []
     for root, _, files in os.walk(folder_path):
         current_dir_name = os.path.basename(root)
-        for f in tqdm(files, desc=f'Reading images in {current_dir_name}:'):
+        for f in tqdm(files, desc=f'Reading images in {current_dir_name}', unit='image'):
             if f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff', 'heic')):
                 image_files.append(os.path.join(root, f))
 
@@ -43,4 +44,3 @@ class baseDataSet(Dataset):
         imgTensor = self.transform(img)
 
         return imgTensor, basename
-

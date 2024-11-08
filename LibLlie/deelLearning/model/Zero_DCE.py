@@ -1,51 +1,52 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import math
-import numpy as np
+
+
+class Conv(nn.Module):
+    def __init__(self, in_channels, out_channels, kernel_size, stride=1, padding=1, bias=True):
+        super(Conv, self).__init__()
+        self.conv = nn.Conv2d(in_channels, out_channels, kernel_size, stride=stride, padding=padding, bias=bias)
+        self.relu = nn.ReLU(inplace=True)
+
+    def forward(self, x):
+        return self.relu(self.conv(x))
 
 
 class enhance_net_nopool(nn.Module):
     def __init__(self):
         super(enhance_net_nopool, self).__init__()
-
-        self.relu = nn.ReLU(inplace=True)
-
-        number_f = 32
-        self.e_conv1 = nn.Conv2d(3, number_f, 3, 1, 1, bias=True)
-        self.e_conv2 = nn.Conv2d(number_f, number_f, 3, 1, 1, bias=True)
-        self.e_conv3 = nn.Conv2d(number_f, number_f, 3, 1, 1, bias=True)
-        self.e_conv4 = nn.Conv2d(number_f, number_f, 3, 1, 1, bias=True)
-        self.e_conv5 = nn.Conv2d(number_f * 2, number_f, 3, 1, 1, bias=True)
-        self.e_conv6 = nn.Conv2d(number_f * 2, number_f, 3, 1, 1, bias=True)
-        self.e_conv7 = nn.Conv2d(number_f * 2, 24, 3, 1, 1, bias=True)
-
-        self.maxpool = nn.MaxPool2d(2, stride=2, return_indices=False, ceil_mode=False)
-        self.upsample = nn.UpsamplingBilinear2d(scale_factor=2)
+        num_f = 32
+        self.conv1 = Conv(3, num_f, 3)
+        self.conv2 = Conv(num_f, num_f, 3)
+        self.conv3 = Conv(num_f, num_f, 3)
+        self.conv4 = Conv(num_f, num_f, 3)
+        self.conv5 = Conv(num_f * 2, num_f, 3)
+        self.conv6 = Conv(num_f * 2, num_f, 3)
+        self.conv7 = nn.Conv2d(num_f * 2, 24, 3, 1, 1, bias=True)
 
     def forward(self, x):
-        x1 = self.relu(self.e_conv1(x))
-        # p1 = self.maxpool(x1)
-        x2 = self.relu(self.e_conv2(x1))
-        # p2 = self.maxpool(x2)
-        x3 = self.relu(self.e_conv3(x2))
-        # p3 = self.maxpool(x3)
-        x4 = self.relu(self.e_conv4(x3))
+        x1 = self.conv1(x)
+        x2 = self.conv2(x1)
+        x3 = self.conv3(x2)
+        x4 = self.conv4(x3)
 
-        x5 = self.relu(self.e_conv5(torch.cat([x3, x4], 1)))
-        # x5 = self.upsample(x5)
-        x6 = self.relu(self.e_conv6(torch.cat([x2, x5], 1)))
+        x5 = self.conv5(torch.cat([x3, x4], 1))
+        x6 = self.conv6(torch.cat([x2, x5], 1))
 
-        x_r = F.tanh(self.e_conv7(torch.cat([x1, x6], 1)))
-        r1, r2, r3, r4, r5, r6, r7, r8 = torch.split(x_r, 3, dim=1)
+        # 为8次迭代生成24个参数图
+        x_r = F.tanh(self.conv7(torch.cat([x1, x6], 1)))
+        # 将24个参数图分成8份，每次迭代需要三个通道的曲线参数图
+        r_list = torch.split(x_r, 3, dim=1)
 
-        x = x + r1 * (torch.pow(x, 2) - x)
-        x = x + r2 * (torch.pow(x, 2) - x)
-        x = x + r3 * (torch.pow(x, 2) - x)
-        enhance_image_1 = x + r4 * (torch.pow(x, 2) - x)
-        x = enhance_image_1 + r5 * (torch.pow(enhance_image_1, 2) - enhance_image_1)
-        x = x + r6 * (torch.pow(x, 2) - x)
-        x = x + r7 * (torch.pow(x, 2) - x)
-        enhance_image = x + r8 * (torch.pow(x, 2) - x)
-        r = torch.cat([r1, r2, r3, r4, r5, r6, r7, r8], 1)
-        return enhance_image_1, enhance_image, r
+        x = x + r_list[0] * (torch.pow(x, 2) - x)
+        x = x + r_list[1] * (torch.pow(x, 2) - x)
+        x = x + r_list[2] * (torch.pow(x, 2) - x)
+        x = x + r_list[3] * (torch.pow(x, 2) - x)
+        x = x + r_list[4] * (torch.pow(x, 2) - x)
+        x = x + r_list[5] * (torch.pow(x, 2) - x)
+        x = x + r_list[6] * (torch.pow(x, 2) - x)
+        x = x + r_list[7] * (torch.pow(x, 2) - x)
+
+        r = torch.cat(r_list, dim=1)
+        return x, r

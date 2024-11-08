@@ -130,7 +130,7 @@ the results of HE series
 
 The input
 
-![gamma](assets/gamma.png)
+![gamma](assets/DL_test/input/gamma.png)
 
 The result with varying gamma values
 

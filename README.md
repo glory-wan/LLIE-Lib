@@ -2,11 +2,11 @@
 
 `LibLLIE` is an open-source library **for Low-Light Image Enhancement** built on PyTorch.
 
-​	This Python library provides a collection of traditional machine learning algorithms for low-light image enhancement. The library supports multiple color spaces and offers various methods for image enhancement. It is designed to be modular and easy to integrate into your existing projects.
-
-​	The integration code for deep learning models is currently being developed and will be released soon !
-
-​	Feel free to use this library in your research!
+	This Python library provides a collection of traditional machine learning algorithms for low-light image enhancement. The library supports multiple color spaces and offers various methods for image enhancement. It is designed to be modular and easy to integrate into your existing projects.
+	
+	The integration code for deep learning models is currently being developed and will be released soon !
+	
+	Feel free to use this library in your research!
 
 ⭐ Star us on GitHub — your support means a lot!
 
@@ -70,17 +70,21 @@ pip install LibLlie-1.0.tar.gz
 
 To quickly start processing images using the command-line interface:
 
-```
-python example/commandTA.py --img path/to/img --method he --cs hsv --name he_hsv --display True
+```shell
+# traditional algorithm
+python commandTA.py --img path/to/img --method he --cs hsv --name he_hsv --display True
+# deep learning algorithm
+python commandDL.py --model model --model_path weights.pth --input_dir path/to/img --output_dir path/to/output_img
 ```
 
-Supported algorithms and color spaces can be found in the `LibLlie/troditionAlgorithm/config.py` file.
+Supported algorithms and color spaces can be found in the `LibLlie/troditionAlgorithm/config.py` (traditional algorithm) and `LibLlie/deelLearning/config.py` (deep learning algorithm) file.
 
 ### Script Interface
 
 To use the library in a Python script:
 
 ```python
+# traditional algorithm
 from LibLlie.scriptTA import script_ta
 
 img = script_ta(
@@ -102,7 +106,7 @@ img = script_ta(
 )
 ```
 
-### Parameters
+### Parameters (traditional algorithm)
 
 The configuration parameters for the algorithms can be set via the command line or within a script:
 
@@ -113,6 +117,34 @@ The configuration parameters for the algorithms can be set via the command line 
 Optional parameters include `clipLimit`, `gridSize`, `iteration`, `name`, `save`, `format`, `display`, `width`, and `height`.
 
 More details can be found in the `LibLlie/troditionAlgorithm/config.py` file.
+
+```python
+# deep learning algorithm
+from LibLlie.deelLearning.utils.utils import scriptDL
+
+img = scriptDL(
+    model='Zero-DCE',
+    model_path=r'LibLlie/models/Zero-DCE/Zero-DCE.pth',
+    input_dir=r'assets/DL_test/input',
+    output_dir=r'assets/DL_test/output',
+
+    # following parameters are alternative
+    # save_format='jpg',
+    # batch_size=1,
+    # output_height=256,
+)
+```
+
+### Parameters (deep learning algorithm)
+
+The configuration parameters for the algorithms can be set via the command line or within a script:
+
+- `--model`: the deep learning algorithm
+- `--model_path`: the weights which will be load, saved in `LibLlie/models`.
+
+Other parameters are optional.
+
+More details can be found in the `LibLlie/deelLearning/config.py` file.
 
 ## Case Studies
 
@@ -155,7 +187,7 @@ https://private-user-images.githubusercontent.com/98147662/358849964-d0ce4ae0-44
 
 Some parts of `LLIELib`'s code were completed with the assistance of [Ln3214](https://github.com/Ln3214), [BZ2116](https://github.com/BZ2116), [zhlhlz](https://github.com/zhlhlz), [KyleTang-0711](https://github.com/KyleTang-0711), [Bainianzzz](https://github.com/Bainianzzz), [purplers](https://github.com/purplers), [Mystic2004](https://github.com/Mystic2004), [Humbleb11](https://github.com/Humbleb11), [7dayu6](https://github.com/7dayu6) [shazhou01](https://github.com/shazhou01).
 
-​	We welcome contributions to improve this library. If you would like to contribute, please fork the repository, create a new branch, and submit a pull request.
+	We welcome contributions to improve this library. If you would like to contribute, please fork the repository, create a new branch, and submit a pull request.
 
 ## Contact us
 

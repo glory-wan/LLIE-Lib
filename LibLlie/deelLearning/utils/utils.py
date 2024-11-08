@@ -47,7 +47,7 @@ def scriptDL(
         save_format='png',
 
         batch_size=1,
-        output_height=(512, 512),
+        output_height=512,
 ):
     # env info
     output_format = model
@@ -96,6 +96,7 @@ def command_DL():
         save_format=pta.save_format,
 
         batch_size=pta.batch_size,
+        output_height=pta.output_height,
     )
 
 # if __name__ == '__main__':

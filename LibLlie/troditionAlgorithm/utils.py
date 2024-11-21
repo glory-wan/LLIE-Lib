@@ -2,7 +2,7 @@ import cv2
 import os
 from pathlib import Path
 
-from LibLlie.deelLearning.utils import ReadImage, show_img, save_img
+from ..utils import ReadImage, show_img, save_img
 from LibLlie.troditionAlgorithm.methods.heMethod import HeImage
 from LibLlie.troditionAlgorithm.methods.DarkChannel import DarkChannel
 from LibLlie.troditionAlgorithm.config import parameters_ta

@@ -2,8 +2,9 @@ import cv2
 import os
 from pathlib import Path
 
-from LibLlie.deelLearning.utils import ReadImage, show_img, save_img
+from ..utils import ReadImage, show_img, save_img
 from LibLlie.troditionAlgorithm.methods.heMethod import HeImage
+from LibLlie.troditionAlgorithm.methods.DarkChannel import DarkChannel
 from LibLlie.troditionAlgorithm.config import parameters_ta
 from LibLlie.troditionAlgorithm.processPipeline import process_pipeline
 
@@ -40,13 +41,21 @@ class PipelineImage:
         elif cs == 'lab':
             self.img = cv2.merge((self.pipeline, self.pipeline2, self.pipeline3))
             self.img = cv2.cvtColor(self.img, cv2.COLOR_LAB2BGR)
-        else:
+        elif cs == 'yuv':
             self.img = cv2.merge((self.pipeline, self.pipeline2, self.pipeline3))
             self.img = cv2.cvtColor(self.img, cv2.COLOR_YUV2BGR)
+        else:
+            self.img = None
+            print(f"Unsupported color_space: {cs}. "
+                  f"Use 'rgb', 'hsv', 'hls', 'lab', 'yuv'.")
 
         return self.img
 
     def rgb(self):
+        """
+        Returns:
+            A tuple containing the three channels: blue channel, green channel, and red channel.
+        """
         self.check_img()
         self.pipeline1, self.pipeline2, self.pipeline3 = cv2.split(self.img)
         return self.pipeline1, self.pipeline2, self.pipeline3
@@ -102,9 +111,21 @@ project_path = Path(__file__).parent.parent.parent
 results_path = os.path.join(project_path, 'results')
 
 
-def script_ta(img_path, algorithm, color_space, showimg=True, saveimg=True,
-              name='resultImg', width=800, height=600, format='jpg', directory=results_path,
-              clipLimit=None, gridSize=None, iteration=None):
+def script_ta(img_path,
+              algorithm,
+              color_space,
+              showimg=True,
+              saveimg=False,
+              name='resultImg',
+              width=800,
+              height=600,
+              format='jpg',
+              directory=results_path,
+              clipLimit=None,
+              gridSize=None,
+              iteration=None,
+              dcpSize=None,
+              ):
     reader = ReadImage(img_path)
     image = reader.img
 
@@ -116,17 +137,23 @@ def script_ta(img_path, algorithm, color_space, showimg=True, saveimg=True,
         iteration=iteration
     )
 
-    al_cs = AlgorithmCs(process=processor, pipeline=pipeliner)
-    algorithms = al_cs.he_algorithm()
+    if algorithm == 'DCP':
+        DCP = DarkChannel(size=dcpSize)
+    else:
+        DCP = None
+
+    al_cs = AlgorithmCs(pipeline=pipeliner, process=processor)
+    he_algorithms = al_cs.he_algorithm()
     color_spaces = al_cs.color_space
 
     image = process_pipeline(
         method=algorithm,
         cs=color_space,
-        algorithms=algorithms,
+        algorithms=he_algorithms,
         color_space=color_spaces,
         process=processor,
-        pipeline=pipeliner
+        pipeline=pipeliner,
+        DCP=DCP,
     )
     if showimg:
         show_img(
@@ -152,6 +179,7 @@ def command_ta():
     image = reader.img
 
     pipeliner = PipelineImage(img=image)
+
     processor = HeImage(
         param=pta,
         pipeline=pipeliner,
@@ -164,13 +192,19 @@ def command_ta():
     algorithms = al_cs.he_algorithm()
     color_spaces = al_cs.color_space
 
+    if pta.method == 'DCP':
+        DCP = DarkChannel(size=pta.size)
+    else:
+        DCP = None
+
     image = process_pipeline(
         method=pta.method,
         cs=pta.cs,
         algorithms=algorithms,
         color_space=color_spaces,
         process=processor,
-        pipeline=pipeliner
+        pipeline=pipeliner,
+        DCP=DCP,
     )
     if pta.display:
         show_img(

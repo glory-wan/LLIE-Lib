@@ -15,6 +15,7 @@ LibLlie/deelLearning/block/__init__.py
 LibLlie/deelLearning/dataset/__init__.py
 LibLlie/deelLearning/dataset/basedataset.py
 LibLlie/deelLearning/dataset/imageReader.py
+LibLlie/deelLearning/dataset/preprocessor.py
 LibLlie/deelLearning/loss/SCI_loss.py
 LibLlie/deelLearning/loss/__init__.py
 LibLlie/deelLearning/model/SCI.py

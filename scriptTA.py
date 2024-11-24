@@ -1,7 +1,7 @@
 from LibLlie.troditionAlgorithm.utils import script_ta
 
 if __name__ == '__main__':
-    path_to_img = r"D:\Code\JupyterCode\Assigment\data\real_data\fish.png"  # it can be input local image, url, or bytes stream
+    path_to_img = r"assets/input.jpg"  # it can be input local image, url, or bytes stream
 
     img = script_ta(
         path_to_img,
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         # clipLimit=,   # default = 2.0
         # gridSize=,    # default = 8
         # iteration=    # default = 2
-        dcpSize=15,     # default = 15
+        # dcpSize=15,     # default = 15
     )
     """
         Quickly start:

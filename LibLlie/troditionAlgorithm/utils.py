@@ -137,7 +137,10 @@ def script_ta(img_path,
         iteration=iteration
     )
 
-    DCP = DarkChannel(size=dcpSize)
+    if algorithm == 'DCP':
+        DCP = DarkChannel(size=dcpSize)
+    else:
+        DCP = None
 
     al_cs = AlgorithmCs(pipeline=pipeliner, process=processor)
     he_algorithms = al_cs.he_algorithm()

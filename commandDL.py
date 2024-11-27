@@ -1,4 +1,4 @@
-from LibLlie.deelLearning.utils.utils import command_DL
+from LibLlie.deelLearning.utils import command_DL
 
 if __name__ == '__main__':
     command_DL()

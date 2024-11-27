@@ -10,6 +10,7 @@ LibLlie.egg-info/requires.txt
 LibLlie.egg-info/top_level.txt
 LibLlie/deelLearning/__init__.py
 LibLlie/deelLearning/config.py
+LibLlie/deelLearning/utils.py
 LibLlie/deelLearning/block/FreqFusion.py
 LibLlie/deelLearning/block/__init__.py
 LibLlie/deelLearning/dataset/__init__.py
@@ -21,8 +22,6 @@ LibLlie/deelLearning/loss/__init__.py
 LibLlie/deelLearning/model/SCI.py
 LibLlie/deelLearning/model/Zero_DCE.py
 LibLlie/deelLearning/model/__init__.py
-LibLlie/deelLearning/utils/__init__.py
-LibLlie/deelLearning/utils/utils.py
 LibLlie/troditionAlgorithm/__init__.py
 LibLlie/troditionAlgorithm/config.py
 LibLlie/troditionAlgorithm/processPipeline.py

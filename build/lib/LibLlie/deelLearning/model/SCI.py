@@ -130,18 +130,17 @@ class Network(nn.Module):
 
 class Finetunemodel(nn.Module):
 
-    def __init__(self, weights):
+    def __init__(self):
         super(Finetunemodel, self).__init__()
         self.enhance = EnhanceNetwork(layers=1, channels=3)
         self._criterion = LossFunction()
 
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        base_weights = torch.load(weights, weights_only=True, map_location=device)
-        pretrained_dict = base_weights
+    def load_state_dict(self, state_dict, strict=True, assign=False):
+        base_weights = {k: v for k, v in state_dict.items()}
         model_dict = self.state_dict()
-        pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
+        pretrained_dict = {k: v for k, v in base_weights.items() if k in model_dict}
         model_dict.update(pretrained_dict)
-        self.load_state_dict(model_dict)
+        super().load_state_dict(model_dict, strict=strict)
 
     def weights_init(self, m):
         if isinstance(m, nn.Conv2d):
@@ -155,7 +154,7 @@ class Finetunemodel(nn.Module):
         i = self.enhance(input)
         r = input / i
         r = torch.clamp(r, 0, 1)
-        return i, r
+        return r, i
 
     def _loss(self, input):
         i, r = self(input)

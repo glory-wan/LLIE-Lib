@@ -11,6 +11,13 @@ models = {
     'Zero-DCE': enhance_net_nopool,
 }
 
+model_paths = {
+    'SCI-easy': r'LibLlie/models/SCI/easy.pt',
+    'SCI-medium': r'LibLlie/models/SCI/medium.pt',
+    'SCI-difficult': r'LibLlie/models/SCI/difficult.pt',
+    'Zero-DCE': r'LibLlie/models/Zero-DCE/Zero-DCE.pth',
+}
+
 transforms = {
     'default': defaultTrans,  # This transforms usually used for SCI model
     'Zero-DCE': Zero_DCE_Trans,
@@ -21,10 +28,7 @@ def parameters_ta():
     parser = argparse.ArgumentParser(description='Configuration parameters of deeplearning algorithms')
 
     # model parameters
-    parser.add_argument('--model', type=str, required=True, help='the deeplearning algorithm', default='Zero-DCE')
-    parser.add_argument('--model_path', type=str, required=True,
-                        help='the weights which will be load, saved in \'LibLlie/models\'',
-                        default='LibLlie/models/Zero-DCE/Zero-DCE.pth')
+    parser.add_argument('--model', type=str, required=True, help='the deeplearning algorithm', default='SCI-medium')
 
     # data parameters
     parser.add_argument('--input_dir', type=str, help='the format of the image which will be handle (required)',
@@ -36,5 +40,6 @@ def parameters_ta():
     # eval parameters
     parser.add_argument('--batch_size', type=int, help='the number of image of one batch', default=1)
     parser.add_argument('--output_height', type=int, help='the height of the output image', default=512)
+    parser.add_argument('--gpu', type=int, help='gpu device id', default=0)
 
     return parser.parse_args()

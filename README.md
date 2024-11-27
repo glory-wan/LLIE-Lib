@@ -50,7 +50,7 @@ pip install -r requirements.txt
 ```python
 git clone https://github.com/glory-wan/LLIE-Lib.git
 
-pip install -e .  # Editable mode, suitable for those who wish to modify the source code.
+pip install -e .  # Recommand! Editable mode, suitable for those who wish to modify the source code.
 pip install .     # Standard mode, suitable for installing the package without the need for further modification of the source code.
 ```
 
@@ -83,29 +83,6 @@ Supported algorithms and color spaces can be found in the `LibLlie/troditionAlgo
 
 To use the library in a Python script:
 
-```python
-# traditional algorithm
-from LibLlie.scriptTA import script_ta
-
-img = script_ta(
-    img_path='path/to/img.jpg',
-    algorithm='he',
-	
-    # following parameters are alternative
-    showimg=True,
-    saveimg=False,
-    # name='rgb_he',
-    # width=800,
-    # height=600,
-    # format='jpg',
-    # directory=results_path,
-    # clipLimit=2.0,   # default = 2.0
-    # gridSize=8,    # default = 8
-    # iteration=2,    # default = 2
-    # dcpSize=15,     # default = 15
-)
-```
-
 ### Parameters (traditional algorithm)
 
 The configuration parameters for the algorithms can be set via the command line or within a script:
@@ -119,20 +96,24 @@ Optional parameters include `clipLimit`, `gridSize`, `iteration`, `name`, `save`
 More details can be found in the `LibLlie/troditionAlgorithm/config.py` file.
 
 ```python
-# deep learning algorithm
-from LibLlie.deelLearning.utils.utils import scriptDL
+img = script_ta(
+        path_to_img,
+        algorithm='DCP',
+        color_space='rgb',
 
-img = scriptDL(
-    model='Zero-DCE',
-    model_path=r'LibLlie/models/Zero-DCE/Zero-DCE.pth',
-    input_dir=r'assets/DL_test/input',
-    output_dir=r'assets/DL_test/output',
-
-    # following parameters are alternative
-    # save_format='jpg',
-    # batch_size=1,
-    # output_height=256,
-)
+        # following parameters are alternative
+        showimg=True,
+        saveimg=False,
+        # name='rgb_he',
+        # width=800,
+        # height=600,
+        # format='jpg',
+        # directory=results_path,
+        # clipLimit=,   # default = 2.0
+        # gridSize=,    # default = 8
+        # iteration=    # default = 2
+        # dcpSize=15,     # default = 15
+    )
 ```
 
 ### Parameters (deep learning algorithm)
@@ -140,11 +121,34 @@ img = scriptDL(
 The configuration parameters for the algorithms can be set via the command line or within a script:
 
 - `--model`: the deep learning algorithm
-- `--model_path`: the weights which will be load, saved in `LibLlie/models`.
+- `--model_path`: the weights which will be load, saved in `LibLlie/models`. If you want to use the interface in other projects, 
+you need to **copied the weights** to your projects' directory.
 
 Other parameters are optional.
 
 More details can be found in the `LibLlie/deelLearning/config.py` file.
+
+```python
+img = scriptDL(
+        model='Zero-DCE',
+        model_path='LibLlie/models/Zero-DCE/Zero-DCE.pth',
+        input=r'assets/input.jpg',
+        # input=r'assets/DL_test',
+        output_dir=r'results',
+        # save_format='jpg',
+        
+        # These two parameters only work if input is a file
+        save_image=False,
+        show_image=True,
+
+        # following parameters are alternative
+        # save_image=False,
+        # show_image=True,
+        # gpu=0,
+        # batch_size=1,
+        # output_height=512,
+    )
+```
 
 ## Case Studies
 
@@ -162,7 +166,7 @@ the results of HE series
 
 The input
 
-![gamma](assets/DL_test/input/gamma.png)
+![gamma](assets/DL_test/gamma.png)
 
 The result with varying gamma values
 

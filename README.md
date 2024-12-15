@@ -2,29 +2,28 @@
 
 `LibLLIE` is an open-source library **for Low-Light Image Enhancement** built on PyTorch.
 
-	This Python library provides a collection of traditional machine learning algorithms for low-light image enhancement. The library supports multiple color spaces and offers various methods for image enhancement. It is designed to be modular and easy to integrate into your existing projects.
-	
-	The integration code for deep learning models is currently being developed and will be released soon !
-	
-	Feel free to use this library in your research!
+This Python library provides a collection of traditional algorithms and deep learning models for low-light image enhancement. It is designed to be modular and easy to integrate into your existing projects.
+
+Feel free to use this library in your research!
 
 ⭐ Star us on GitHub — your support means a lot!
 
 ## Table of Contents
 
 - [Installation](#installation)
-
 - [Implementations](#Demonstration)
-  - HE series
+  - traditional algorithms ( for now )
+    1. HE series
+    2. Math series
+    3. Dark Channel Prior(DCP)
+    4. Multiple Color Spaces
   
-  - Math series
-  
-  - Dark Channel Prior(DCP)
-  
-  - Multiple Color Spaces
+  - deep learning models ( for now )
+    1. [SCI](https://github.com/vis-opt-group/SCI) (2022 CVPR)
+    2. [Zero-DCE](https://github.com/Li-Chongyi/Zero-DCE) (2020 CVPR)
   
 
-**Supported Algorithms** for now :
+**Supported Algorithms** :
 
 HE Series: HE、CLAHE、RCLAHE
 
@@ -35,6 +34,8 @@ Dark Channel Prior(DCP): implementation of paper : [Single image haze removal us
 Color Spaces: RGB、HLS、HSV、LAB、YUV...
 
 More algorithms will be released soon !
+
+
 
 ## Installation
 
@@ -188,6 +189,9 @@ https://private-user-images.githubusercontent.com/98147662/358849964-d0ce4ae0-44
 ![Multi-Enhancement](assets/Multi_Enhancement.png)
 
 ## Contributor
+
+- [Glory wan](https://github.com/glory-wan)  Email: glory947446@gmail.com
+- [Bainianzzz](https://github.com/Bainianzzz) Email:
 
 Some parts of `LLIELib`'s code were completed with the assistance of [Ln3214](https://github.com/Ln3214), [BZ2116](https://github.com/BZ2116), [zhlhlz](https://github.com/zhlhlz), [KyleTang-0711](https://github.com/KyleTang-0711), [Bainianzzz](https://github.com/Bainianzzz), [purplers](https://github.com/purplers), [Mystic2004](https://github.com/Mystic2004), [Humbleb11](https://github.com/Humbleb11), [7dayu6](https://github.com/7dayu6) [shazhou01](https://github.com/shazhou01).
 

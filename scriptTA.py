@@ -5,12 +5,12 @@ if __name__ == '__main__':
 
     img = script_ta(
         path_to_img,
-        algorithm='DCP',
+        algorithm='clahe',
         color_space='rgb',
-
+        directory=r"C:\Users\13011\Desktop\save",
         # following parameters are alternative
         showimg=True,
-        saveimg=False,
+        saveimg=True,
         # name='rgb_he',
         # width=800,
         # height=600,

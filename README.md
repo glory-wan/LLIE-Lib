@@ -161,13 +161,13 @@ the input![input](assets/input.jpg)
 
 the results of HE series
 
-![image-20240817204710109](assets/HE_seies.png)
+![HE_seies](assets/HE_seies.jpg)
 
 **Original vs Enhanced Images using `gamma correction`**
 
 The input
 
-![gamma](assets/DL_test/gamma.png)
+![gamma](assets/DL_test/gamma.jpg)
 
 The result with varying gamma values
 
@@ -186,7 +186,7 @@ https://private-user-images.githubusercontent.com/98147662/358849964-d0ce4ae0-44
 
 (This part of the code will be uploaded soon.)
 
-![Multi-Enhancement](assets/Multi_Enhancement.png)
+![Multi-Enhancement](assets/Multi_Enhancement.jpg)
 
 ## Contributor
 

@@ -193,8 +193,6 @@ https://private-user-images.githubusercontent.com/98147662/358849964-d0ce4ae0-44
 - [Glory wan](https://github.com/glory-wan)  Email: glory947446@gmail.com
 - [Bainianzzz](https://github.com/Bainianzzz) Email:
 
-Some parts of `LLIELib`'s code were completed with the assistance of [Ln3214](https://github.com/Ln3214), [BZ2116](https://github.com/BZ2116), [zhlhlz](https://github.com/zhlhlz), [KyleTang-0711](https://github.com/KyleTang-0711), [Bainianzzz](https://github.com/Bainianzzz), [purplers](https://github.com/purplers), [Mystic2004](https://github.com/Mystic2004), [Humbleb11](https://github.com/Humbleb11), [7dayu6](https://github.com/7dayu6) [shazhou01](https://github.com/shazhou01).
-
 	We welcome contributions to improve this library. If you would like to contribute, please fork the repository, create a new branch, and submit a pull request.
 
 ## Contact us

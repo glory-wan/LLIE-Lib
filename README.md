@@ -24,7 +24,6 @@ More algorithms will be released soon !
 - ✅ Unified API for all algorithms
 - ✅ Extensive configuration options
 - ✅ Comprehensive logging and monitoring
-- ✅ Full test coverage (85%+)
 - ✅ Detailed API documentation
 
 ## 📦 **Installation**

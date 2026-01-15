@@ -47,4 +47,7 @@ class enhance_net_nopool(nn.Module):
         x = x + r_list[7] * (torch.pow(x, 2) - x)
 
         r = torch.cat(r_list, dim=1)
-        return x, r
+        return {
+            'enImg': x,
+            'enLabel': r
+        }

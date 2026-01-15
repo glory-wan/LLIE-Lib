@@ -49,7 +49,8 @@ def predict(
             pbar = tqdm(testImages, desc=f'using {os.path.basename(checkpoint)} to infer', unit='image')
             for imTensor, name in pbar:
                 imTensor = imTensor.to(device)
-                enImg, _ = model(imTensor)
+                enResult = model(imTensor)
+                enImg = enResult['enImg']
 
                 if save_format is None:
                     save_format = name[1][0]
@@ -62,7 +63,8 @@ def predict(
         model.eval()
         with torch.no_grad():
             imTensor = imTensor.to(device)
-            enImg, _ = model(imTensor)
+            enResult = model(imTensor)
+            enImg = enResult['enImg']
 
         if save_image:
             if save_format is None:

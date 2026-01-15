@@ -154,7 +154,11 @@ class Finetunemodel(nn.Module):
         i = self.enhance(input)
         r = input / i
         r = torch.clamp(r, 0, 1)
-        return r, i
+
+        return {
+            'enImg': r,
+            'enLabel': i
+        }
 
     def _loss(self, input):
         i, r = self(input)

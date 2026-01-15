@@ -7,6 +7,7 @@ from io import BytesIO
 from pathlib import Path
 
 
+
 class ReadImage:
     """
        A class for reading images from local files, URLs, or byte streams.

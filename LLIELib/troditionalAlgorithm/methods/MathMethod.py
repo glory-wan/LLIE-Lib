@@ -1,11 +1,10 @@
 import cv2
 import numpy as np
-from abc import ABC
 
 from .AbsMethod import AbsMethod
 
 
-class MathImage(AbsMethod, ABC):
+class MathImage(AbsMethod):
     def __init__(self, param=None, pipeline=None):
         super().__init__(param, pipeline)
         self.gamma = None

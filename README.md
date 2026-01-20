@@ -1,5 +1,5 @@
-# LLIE-Lib : Low-Light Image Enhancement Library
-LLIE Lib is a comprehensive, production-ready library for low-light image enhancement, featuring both traditional algorithms and state-of-the-art deep learning models. Built with modularity and performance in mind, it supports the latest PyTorch versions and offers GPU acceleration for fast processing.
+# LibLLIE: A Python Library for Low-Light Image Enhancement 
+LibLLIE is a comprehensive, production-ready python library for low-light image enhancement, featuring both traditional algorithms and state-of-the-art deep learning models. Built with modularity and performance in mind, it supports the latest PyTorch versions and offers GPU acceleration for fast processing.
 
 **🚀 Feel free to use this library in your research!**
 
@@ -28,10 +28,10 @@ More algorithms will be released soon !
 
 ## 📦 **Installation**
 
-There are three ways to install `LLIELib`.
+There are three ways to install `LibLLIE`.
 
 ```
-conda create -n LLIE-Lib python=3.11 -y
+conda create -n libllie python=3.11 -y
 torch==2.9.0 torchvision==0.24.0 torchaudio==2.9.0
 pip install -r requirements.txt
 ```
@@ -39,7 +39,7 @@ pip install -r requirements.txt
 **Method 1: Install from Source Code**
 
 ```python
-git clone https://github.com/glory-wan/LLIE-Lib.git
+git clone https://github.com/glory-wan/LibLLIE.git
 
 pip install -e .  # Recommand! Editable mode, suitable for those who wish to modify the source code.
 pip install .     # Standard mode, suitable for installing the package without the need for further modification of the source code.
@@ -52,7 +52,7 @@ With this method, you don't need to download the source code. Simply download a 
 The compressed package can be found at `LLIE-Lib/dist`, or you can download it from the `Releases` section.
 
 ```
-pip install LlieLib.tar.gz
+pip install LibLLIE.tar.gz
 ```
 
 ## 🚀 Quick Start
@@ -84,7 +84,7 @@ The configuration parameters for the algorithms can be set via the command line 
 
 Optional parameters include `clipLimit`, `gridSize`, `iteration`, `name`, `save`, `format`, `display`, `width`, and `height`.
 
-More details can be found in the `LibLlie/troditionAlgorithm/config.py` file.
+More details can be found in the `LibLLIE/troditionAlgorithm/config.py` file.
 
 ```python
 img = script_ta(
@@ -112,16 +112,16 @@ img = script_ta(
 The configuration parameters for the algorithms can be set via the command line or within a script:
 
 - `--model`: the deep learning algorithm
-- `--model_path`: the weights which will be load, saved in `LibLlie/models`. If you want to use the interface in other projects, you need to **copied the weights** to your projects' directory.
+- `--model_path`: the weights which will be load, saved in `LibLLIE/models`. If you want to use the interface in other projects, you need to **copied the weights** to your projects' directory.
 
 Other parameters are optional.
 
-More details can be found in the `LibLlie/deelLearning/config.py` file.
+More details can be found in the `LibLLIE/deelLearning/config.py` file.
 
 ```python
 img = scriptDL(
-        model='Zero-DCE',
-        model_path='LibLlie/models/Zero-DCE/Zero-DCE.pth',
+        model='Zero_DCE',
+        model_path='LibLlie/models/Zero_DCE/Zero_DCE.pth',
         input=r'assets/input.jpg',
         # input=r'assets/DL_test',
         output_dir=r'results',

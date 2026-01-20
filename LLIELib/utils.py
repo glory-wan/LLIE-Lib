@@ -60,7 +60,7 @@ class ReadImage:
                 except requests.exceptions.RequestException as e:
                     print(f"Error fetching image: {e}")
             elif self.image_type == "bytes":
-                converter = ConvertFormat(data=self.image_source, convertWay='bytes2img')
+                converter = ConvertFormat(data=self.image_source, convertWay='byte2img')
                 return converter.convert_data()
         except Exception as e:
             print(f"Error reading image: {e}")
@@ -74,8 +74,8 @@ class ConvertFormat:
         self.ext = ext
         self.convertWay = convertWay
         self.format = {
-            'bytes2img': self.bytes_to_image,
-            'img2bytes': self.image_to_bytes,
+            'byte2img': self.bytes_to_image,
+            'img2byte': self.image_to_bytes,
             'base642img': self.base64_to_img,
             'img2base64': self.img_to_base64
         }

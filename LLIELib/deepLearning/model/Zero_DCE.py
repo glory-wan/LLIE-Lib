@@ -13,9 +13,9 @@ class Conv(nn.Module):
         return self.relu(self.conv(x))
 
 
-class enhance_net_nopool(nn.Module):
+class Zero_DCE(nn.Module):
     def __init__(self):
-        super(enhance_net_nopool, self).__init__()
+        super(Zero_DCE, self).__init__()
         num_f = 32
         self.conv1 = Conv(3, num_f, 3)
         self.conv2 = Conv(num_f, num_f, 3)

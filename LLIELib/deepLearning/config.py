@@ -2,19 +2,19 @@ import argparse
 import os.path
 from email.policy import default
 
-from LLIELib.deepLearning.model.SCI import Finetunemodel
-from LLIELib.deepLearning.model.Zero_DCE import enhance_net_nopool
+from LLIELib.deepLearning.model import Finetunemodel, Zero_DCE, Zero_DCE_extension
 
 models = {
     'SCI-easy': Finetunemodel,
     'SCI-medium': Finetunemodel,
     'SCI-difficult': Finetunemodel,
-    'Zero-DCE': enhance_net_nopool,
+    'Zero_DCE': Zero_DCE,
+    'Zero_DCE_extension': Zero_DCE_extension
 }
 
 # transforms = {
 #     'default': defaultTrans,
-#     'Zero-DCE': Zero_DCE_Trans,
+#     'Zero_DCE': Zero_DCE_Trans,
 # }
 
 
@@ -23,9 +23,9 @@ def parameters_dl():
 
     # model parameters
     parser.add_argument('--model', type=str, required=True,help='the deeplearning model',
-                        default='Zero-DCE')
-    parser.add_argument('--checkpoint', type=str, required=True, help="the deeplearning model's weights",
-                        default='./checkpoints/Zero-DCE/Zero-DCE.pth')
+                        default='Zero_DCE')
+    parser.add_argument('--weight', type=str, required=True, help="the deeplearning model's weights",
+                        default='./weights/Zero_DCE/Zero_DCE.pth')
     # data parameters
     parser.add_argument('--input', type=str, help='the format of the image which will be handle (required)',
                         default='assets/input.jpg', required=True)

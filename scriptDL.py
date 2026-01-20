@@ -3,8 +3,8 @@ import LLIELib
 if __name__ == '__main__':
     LLIELib.predict(
         './assets/input.jpg',
-        model='Zero-DCE',
-        checkpoint='./checkpoints/Zero-DCE/Zero-DCE.pth',
+        model='Zero_DCE',
+        weight='./weights/Zero_DCE/Zero_DCE.pth',
 
         # following parameters are alternative
         # save_dir='results',
@@ -21,6 +21,6 @@ if __name__ == '__main__':
         Quickly start:
 
         supported model:
-            Zero-DCE | SCI-easy | SCI-medium | SCI-difficult
+            Zero_DCE | SCI-easy | SCI-medium | SCI-difficult
 
     """

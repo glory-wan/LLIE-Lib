@@ -14,7 +14,7 @@ from LLIELib.deepLearning.dataset.preprocessor import predict_Trans
 def predict(
         images,
         model=None,
-        checkpoint=None,
+        weight=None,
         save_dir=results_path,
         save_format=None,
         save_image=True,
@@ -28,13 +28,16 @@ def predict(
     log_info_env()
     device = torch.device(f'cuda:{gpu}' if torch.cuda.is_available() else 'cpu')
 
-    # load the model from checkpoint
+    # load the model from weight
     try:
         print(f"\n Now, you are using '{device}' to run {model} model!\n")
         model = models[model]().to(device)
-        model.load_state_dict(torch.load(checkpoint, weights_only=True, map_location=device))
+        model.load_state_dict(torch.load(weight, weights_only=True, map_location=device))
     except FileNotFoundError:
-        print('failed to load the model')
+        print(f"Error: Model weight file '{weight}' not found!")
+        sys.exit(1)
+    except Exception as e:
+        print(f"Unexpected error occurred while loading model: {e}")
         sys.exit(1)
     
     # preprocess
@@ -46,7 +49,7 @@ def predict(
 
         model.eval()
         with torch.no_grad():
-            pbar = tqdm(testImages, desc=f'using {os.path.basename(checkpoint)} to infer', unit='image')
+            pbar = tqdm(testImages, desc=f'using {os.path.basename(weight)} to infer', unit='image')
             for imTensor, name in pbar:
                 imTensor = imTensor.to(device)
                 enResult = model(imTensor)
@@ -87,7 +90,7 @@ def command_DL():
     predict(
         images=pta.input,
         model=pta.model,
-        checkpoint=pta.checkpoint,
+        weight=pta.weight,
         save_dir=pta.save_dir,
         save_format=pta.save_format,
         save_image=pta.save_image,
